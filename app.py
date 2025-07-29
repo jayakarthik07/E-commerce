@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify, request, render_template
 from flask_sqlalchemy import SQLAlchemy
 from flask_jwt_extended import JWTManager, jwt_required, create_access_token, get_jwt_identity
 from flask_cors import CORS
@@ -240,6 +240,7 @@ def create_order():
     db.session.commit()
     return jsonify({'message': 'Order created'})
 
+# Page serving routes - Use templates and render_template
 @app.route('/')
 @app.route('/signin')
 @app.route('/signup')
@@ -252,7 +253,11 @@ def create_order():
 @app.route('/admin_products')
 @app.route('/order_confirmation')
 def serve_page():
-    return app.send_static_file(f"templates/{request.path[1:] or 'index'}.html")
+    page_name = request.path[1:] or 'index'
+    try:
+        return render_template(f"{page_name}.html")
+    except Exception:
+        return "Page not found", 404
 
 if __name__ == '__main__':
     with app.app_context():
@@ -273,4 +278,5 @@ if __name__ == '__main__':
                 wallet_balance=1000
             ))
         db.session.commit()
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port, debug=True)
