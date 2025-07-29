@@ -1,0 +1,128 @@
+body {
+  background: linear-gradient(135deg, #0057b7 0%, #ffffff 100%);
+  color: #131921;
+  min-height: 100vh;
+  font-family: 'Roboto', sans-serif;
+}
+
+h1, h2, h3 {
+  font-weight: 700;
+  color: #131921;
+}
+
+header {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+header .btn-outline-light {
+  border-color: #f90;
+  color: #f90;
+}
+
+header .btn-outline-light:hover {
+  background: #f90;
+  color: #131921;
+}
+
+.card {
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+.card img {
+  height: 150px;
+  object-fit: cover;
+  border-radius: 6px;
+}
+
+.btn-warning {
+  background: #f90;
+  border: none;
+  color: #131921;
+  font-weight: 700;
+  transition: background 0.3s, transform 0.2s;
+}
+
+.btn-warning:hover {
+  background: #e68a00;
+  transform: scale(1.05);
+}
+
+.btn-outline-warning {
+  border-color: #f90;
+  color: #f90;
+}
+
+.btn-outline-warning:hover {
+  background: #f90;
+  color: #131921;
+}
+
+.list-group-item {
+  border: none;
+  background: #f8f9fa;
+  margin-bottom: 5px;
+  border-radius: 4px;
+}
+
+.table {
+  background: #ffffff;
+  border-radius: 8px;
+}
+
+.table th {
+  background: #f90;
+  color: #131921;
+}
+
+.table td {
+  vertical-align: middle;
+}
+
+.input-group {
+  max-width: 600px;
+}
+
+#price-filter .card {
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.w-50 {
+  max-width: 400px;
+}
+
+#address-input {
+  width: 100%;
+}
+
+@media (max-width: 576px) {
+  header .container {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .input-group {
+    flex-direction: column;
+    gap: 10px;
+    width: 100% !important;
+  }
+
+  .input-group select, .input-group input, .input-group button {
+    width: 100%;
+  }
+
+  .row {
+    flex-direction: column;
+  }
+
+  .w-50 {
+    width: 100% !important;
+  }
+}

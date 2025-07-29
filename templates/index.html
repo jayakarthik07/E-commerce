@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LuxeMart - Home</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="/static/css/styles.css">
+</head>
+<body>
+  <header class="bg-dark text-white py-3 sticky-top">
+    <div class="container d-flex justify-content-between align-items-center">
+      <h1 class="h4 mb-0">LuxeMart</h1>
+      <div class="d-flex align-items-center gap-3">
+        <span id="user-info"></span>
+        <a href="/signin" class="btn btn-outline-light" id="signin-btn">Sign In</a>
+        <a href="/profile" class="btn btn-outline-light d-none" id="profile-btn">Profile</a>
+        <a href="/cart" class="btn btn-outline-light">Cart (<span id="cart-count">0</span>)</a>
+        <a href="/membership" class="btn btn-outline-light">Membership</a>
+        <a href="/admin" class="btn btn-outline-light d-none" id="admin-btn">Admin</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container my-5">
+    <div class="text-center mb-4">
+      <div class="input-group w-75 mx-auto">
+        <input type="text" class="form-control" placeholder="Search products..." id="search-input">
+        <select class="form-select" id="category-filter">
+          <option value="">All Categories</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Fashion">Fashion</option>
+        </select>
+        <button class="btn btn-warning" onclick="searchProducts()">Search</button>
+        <button class="btn btn-outline-warning" type="button" data-bs-toggle="collapse" data-bs-target="#price-filter" aria-expanded="false" aria-controls="price-filter">Filter</button>
+      </div>
+      <div class="collapse mt-3 w-75 mx-auto" id="price-filter">
+        <div class="card card-body">
+          <h5>Price Range</h5>
+          <div class="row">
+            <div class="col-6">
+              <input type="number" class="form-control" id="min-price" placeholder="Min">
+            </div>
+            <div class="col-6">
+              <input type="number" class="form-control" id="max-price" placeholder="Max">
+            </div>
+          </div>
+          <button class="btn btn-warning mt-2" onclick="searchProducts()">Apply</button>
+        </div>
+      </div>
+    </div>
+    <h2>Our Collections</h2>
+    <div class="row" id="product-grid"></div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="/static/js/scripts.js"></script>
+  <script>
+    window.onload = () => {
+      checkAuthStatus();
+      fetchProducts();
+      updateCartCount();
+    };
+  </script>
+</body>
+</html>
