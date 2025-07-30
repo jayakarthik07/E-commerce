@@ -8,9 +8,9 @@ import jwt
 import os
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgresql://user:password@localhost:5432/ecommerce')
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'postgresql://postgres:FPeKLeGjegvISfLUxjsKxPEIJgPfLCHG@postgres.railway.internal:5432/railway')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
-app.config['JWT_SECRET_KEY'] = 'your_jwt_secret_key'
+app.config['JWT_SECRET_KEY'] = 'OTQzNjMwMmUtZjczMy00N2ZlLTk5OTQtMzY1YTUzMmVkOWQy'
 stripe.api_key = 'sk_test_your_stripe_secret_key'
 
 db = SQLAlchemy(app)
